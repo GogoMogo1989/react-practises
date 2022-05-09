@@ -1,5 +1,6 @@
 
 import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 const Create= () => {
 
@@ -7,6 +8,8 @@ const Create= () => {
     const[body, setBody] = useState("")
     const[author, setAuthor] = useState("mario") 
     const[isPending, setIsPending] = useState(false)
+    const history = useHistory()
+
 
     const handleSubmit = (e) => {
         e.preventDefault() //emiatt ha a submutra kattintounk, nem töldőik be az oldal egyből
@@ -21,7 +24,8 @@ const Create= () => {
         }).then(() => {
             console.log("new blog added")
             setIsPending(false)
-        })
+            history.push('/') //ezzel a methódussal a submit után, a homepage-re irányít a honlap.
+        }) 
     }
 
     return (
