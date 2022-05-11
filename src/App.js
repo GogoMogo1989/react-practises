@@ -5,6 +5,7 @@ import Create from "./Create"
 import CBA from "./Cba"
 import Blog from "./Blog"
 import BlogDetails from './BlogDetails'
+import NotFound from './NotFound'
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/blogs/:id">
               <BlogDetails />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </div>
